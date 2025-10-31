@@ -1,5 +1,31 @@
----
-format:
-  html:
-      embed-resources: true
----
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+flights = pd.read_csv("flights.csv")
+
+
+month_counts = flights.groupby('month').size().reset_index(name='count')
+
+
+print(month_counts)
+
+
+plt.bar(month_counts['month'], month_counts['count'])
+plt.xlabel('Month')
+plt.ylabel('Number of Flights')
+plt.title('Number of Flights per Month')
+plt.show()
+plt.savefig("flights.png")
+import os
+os.system("start flights.png")
+
+print(month_counts.to_markgown())
+
+
+
+
+		
+	
